@@ -5,7 +5,7 @@
 export ML_ADMIN=admin
 export ML_PASSWORD=admin
 export ML_PROTOCOL=http
-export ML_DATABASE=testdb
+export ML_DATABASES=testdb_A
 
 # LOCAL SETTINGS
 export ML_LOCAL_ADMIN=admin

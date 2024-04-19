@@ -62,13 +62,11 @@ main() {
                 $ML_LOCAL_ADMIN "$ML_LOCAL_PASSWORD" \
                 $ML_LOCAL_CERT_PATH "$ML_LOCAL_CERT_PASSWORD"
 
-            if "$WIPE";then 
-                removeReplication \
-                    $ML_LOCAL_HOST $ML_LOCAL_PROTOCOL \
-                    "remove-foreign-master" $ML_DATABASE \
-                    $ML_LOCAL_ADMIN "$ML_LOCAL_PASSWORD" \
-                    $ML_LOCAL_CERT_PATH "$ML_LOCAL_CERT_PASSWORD"
-            fi
+            removeReplication \
+                $ML_FOREIGN_HOST $ML_FOREIGN_PROTOCOL \
+                "remove-foreign-master" $ML_DATABASE \
+                $ML_FOREIGN_ADMIN "$ML_FOREIGN_PASSWORD" \
+                $ML_FOREIGN_CERT_PATH "$ML_FOREIGN_CERT_PASSWORD"
             ;;
 
         removeSecondary|removeForeign)
@@ -79,13 +77,11 @@ main() {
                 $ML_FOREIGN_ADMIN "$ML_FOREIGN_PASSWORD" \
                 $ML_FOREIGN_CERT_PATH "$ML_FOREIGN_CERT_PASSWORD"
 
-            if "$WIPE";then
-                removeReplication \
-                    $ML_FOREIGN_HOST $ML_FOREIGN_PROTOCOL \
-                    "remove-foreign-replicas" $ML_DATABASE \
-                    $ML_FOREIGN_ADMIN "$ML_FOREIGN_PASSWORD" \
-                    $ML_FOREIGN_CERT_PATH "$ML_FOREIGN_CERT_PASSWORD"
-            fi
+            removeReplication \
+                $ML_LOCAL_HOST $ML_LOCAL_PROTOCOL \
+                "remove-foreign-replicas" $ML_DATABASE \
+                $ML_LOCAL_ADMIN "$ML_LOCAL_PASSWORD" \
+                $ML_LOCAL_CERT_PATH "$ML_LOCAL_CERT_PASSWORD"
             ;;
 
         # forward is always direction from local to foreign

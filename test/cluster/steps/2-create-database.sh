@@ -9,7 +9,7 @@ setupDatabase() {
   local host=$4
   set -o xtrace
   curl --digest --user "$u:$p" -X POST -i \
-      --data-binary @/tmp/setup-database.sjs \
+      --data-binary @/tmp/setup-database.js \
       -H "Content-type: application/x-www-form-urlencoded" \
       -H "Accept: multipart/mixed; boundary=BOUNDARY" \
       "${protocol}://${host}:8000/v1/eval"

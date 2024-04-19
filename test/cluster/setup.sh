@@ -17,8 +17,8 @@ prepPod() {
   copyFile scripts/cluster/replication.sh /tmp/replication.sh
   copyFile scripts/cluster/util.sh /tmp/util.sh
   # Add test data
-  copyFile test/cluster/setup-database.sjs /tmp/setup-database.sjs
-  copyFile test/cluster/local-docker-env.sh /tmp/local-docker-env.sh
+  copyFile test/cluster/setup-database.js /tmp/setup-database.js
+  copyFile test/cluster/local-kub-env.sh /tmp/local-kub-env.sh
   # loop over each document in teh test/cluster/steps folder
   cd test/cluster/steps
   for f in $(ls); do

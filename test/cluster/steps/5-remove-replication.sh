@@ -6,7 +6,7 @@ bash replication.sh \
     --remove local \
     --primary-host $ML_LOCAL_HOST \
     --secondary-host $ML_FOREIGN_HOST \
-    --database "$ML_DATABASE" \
+    --database "testdb_A" \
     --primary-cluster $ML_LOCAL_CLUSTER_NAME \
     --secondary-cluster $ML_FOREIGN_CLUSTER_NAME
 
@@ -14,6 +14,22 @@ bash replication.sh \
     --remove foreign \
     --primary-host $ML_LOCAL_HOST \
     --secondary-host $ML_FOREIGN_HOST \
-    --database "$ML_DATABASE" \
+    --database "testdb_B" \
     --primary-cluster $ML_LOCAL_CLUSTER_NAME \
     --secondary-cluster $ML_FOREIGN_CLUSTER_NAME
+
+bash replication.sh \
+    --remove local \
+    --primary-host $ML_FOREIGN_HOST \
+    --secondary-host $ML_LOCAL_HOST \
+    --database "testdb_A" \
+    --primary-cluster $ML_FOREIGN_CLUSTER_NAME \
+    --secondary-cluster $ML_LOCAL_CLUSTER_NAME
+
+bash replication.sh \
+    --remove foreign \
+    --primary-host $ML_FOREIGN_HOST \
+    --secondary-host $ML_LOCAL_HOST \
+    --database "testdb_B" \
+    --primary-cluster $ML_FOREIGN_CLUSTER_NAME \
+    --secondary-cluster $ML_LOCAL_CLUSTER_NAME
